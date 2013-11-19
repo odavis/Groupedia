@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html>
+<html lang=
+"en">
 <head>
   <title>Blocipedia</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
@@ -7,8 +8,44 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<div class="container">
+  <div class="header">
+    <ul class="nav nav-pills pull-right">
+      <li class="active"><%= link_to "Home", root_path %></li>
+      <li><%= link_to "About", welcome_about_path %></li>
+      <% if current_user %>
+        <li><%= link_to (current_user.name || current_user.email), edit_user_registration_path %></li>
+        <li><%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
+      <% else %>
+       <li><%= link_to "Sign in", new_user_session_path %></li>
+       <li><%= link_to "Sign up", new_user_registration_path %></li>
+      <% end %>
+    </ul>
+    <h3 class="text-muted"><%= link_to "Blocipedia", root_path%></h3>
+  </div>
 
-<%= yield %>
+ <!-- <div class="alerts">
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+  </div> -->
 
+  <div>
+      <%= yield %>
+    </div>
+  </div>
+
+
+
+
+
+
+    
 </body>
 </html>
+
+
+
+
+
+
+
