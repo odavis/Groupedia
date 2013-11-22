@@ -25,3 +25,9 @@ end
 gem 'jquery-rails'
 gem 'anjlab-bootstrap-rails', :require => 'bootstrap-rails', :github => 'anjlab/bootstrap-rails'
 gem 'devise', '3.2.0'
+gem 'omniauth'
+gem 'omniauth-twitter'
+gem "omniauth-facebook"
+
+gem 'figaro'
+gem 'cancan'

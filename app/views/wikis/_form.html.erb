@@ -1,0 +1,20 @@
+<%= form_for @wiki do |f| %>
+  <div>
+    <%= f.label :topic, "Topic:" %>
+    <%= f.text_field :topic %>
+  </div>
+  
+  <div>
+    <%= f.label :description, "Description:" %>
+    <%= f.text_field :description %>
+  </div>
+
+  <div>
+    <%= f.label :private, "private:" %>
+    <%= f.check_box :private %>
+  </div>
+
+  <div>
+    <%= f.submit "Save" %>
+  </div>
+<% end %>

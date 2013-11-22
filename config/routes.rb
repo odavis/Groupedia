@@ -1,7 +1,27 @@
 Blocipedia::Application.routes.draw do
   
-  devise_for :users
+  get "articles/index"
 
+  get "articles/show"
+
+  get "articles/new"
+
+  get "articles/create"
+
+  get "articles/edit"
+
+  get "articles/update"
+
+  get "articles/destroy"
+
+  resources :wikis do 
+    resources :articles do 
+    end
+  end
+
+  devise_for :users, controllers: { omniauth_callbacks: "omniauth_callbacks"}
+  resources :users
+  
   root :to => "welcome#index"
   get "welcome/about"
 
