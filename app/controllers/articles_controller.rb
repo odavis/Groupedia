@@ -4,7 +4,8 @@ class ArticlesController < ApplicationController
   end
 
   def show
-    @article = Article.find(params[:article_id])
+    @wiki = Wiki.find(params[:wiki_id])
+    @article = Article.find(params[:id])
   end
 
   def new
@@ -14,7 +15,7 @@ class ArticlesController < ApplicationController
 
   def create
     @wiki = Wiki.find(params[:wiki_id])
-    @article = current_user.article.build(params[:article])
+    @article = articles.build(params[:article]) #<-----
     @article.wiki = @wiki 
 
     if @article.save
@@ -32,6 +33,7 @@ class ArticlesController < ApplicationController
   end
 
   def update
+    
   end
 
   def destroy
