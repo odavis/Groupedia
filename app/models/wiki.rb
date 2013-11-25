@@ -3,7 +3,6 @@ class Wiki < ActiveRecord::Base
   attr_accessible :description, :topic, :private
   validates :description, presence: true 
   validates :topic, presence: true  
-
   has_many :articles, dependent: :destroy 
 
 end

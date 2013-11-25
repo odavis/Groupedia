@@ -15,12 +15,12 @@ class ArticlesController < ApplicationController
 
   def create
     @wiki = Wiki.find(params[:wiki_id])
-    @article = articles.build(params[:article]) #<-----
+    @article = @wiki.articles.build(params[:article]) 
     @article.wiki = @wiki 
 
     if @article.save
       flash[:notice] = "Article was saved"
-      redired_to [@wiki, @article]
+      redirect_to [@wiki, @article]
     else
       flash[L:error] = "Error saving Article"
       render :new 
@@ -33,7 +33,7 @@ class ArticlesController < ApplicationController
   end
 
   def update
-    
+
   end
 
   def destroy
