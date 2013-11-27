@@ -1,10 +1,16 @@
 <%= form_for [wiki, article] do |f| %>
-  <%= f.label :tittle %>
-  <%= f.text_field :title %>
+  <div>
+   <%= f.label :tittle %>
+   <%= f.text_field :title %>
+  </div>
+ 
+  <div>
+    <%= f.label :body %>
+    <%= f.text_area :body %>
+  </div>
 
-  <%= f.label :body %>
-  <%= f.text_area :body %>
-
-  <%= f.submit "Submit "%>
+  <div>
+    <%= f.submit "Submit "%>
+  </div>
 
 <% end %>

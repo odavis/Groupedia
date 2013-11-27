@@ -1,6 +1,11 @@
 <h1><%= @wiki.topic %></h1>
-<%= @wiki.description %>
+<p><%= @wiki.description %></p>
 
-<p>Create a new project </p>
+<% @article.each do |article| %>
+  <p><%= link_to article.title, wiki_article_path(@wiki, article)%></p>
+<% end %>
+
+
+
 <%= link_to "New Article", new_wiki_article_path(@wiki), class: "btn btn-success btn-lg" %>
 

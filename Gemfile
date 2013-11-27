@@ -27,7 +27,10 @@ gem 'anjlab-bootstrap-rails', :require => 'bootstrap-rails', :github => 'anjlab/
 gem 'devise', '3.2.0'
 gem 'omniauth'
 gem 'omniauth-twitter'
-gem "omniauth-facebook"
+gem 'omniauth-facebook'
+gem 'koala'
 
 gem 'figaro'
 gem 'cancan'
+gem 'faker'
+gem 'redcarpet'

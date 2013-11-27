@@ -1,5 +1,4 @@
 <h1><%= @article.title %></h1>
 <p><%= @article.body %></p>
-
-
-edit & delete 
+<%= link_to "Edit", edit_wiki_article_path, class: "btn btn-success" %>
+<%= link_to "Delete", "#", class: "btn btn-warning" %>

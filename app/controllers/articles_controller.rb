@@ -22,17 +22,27 @@ class ArticlesController < ApplicationController
       flash[:notice] = "Article was saved"
       redirect_to [@wiki, @article]
     else
-      flash[L:error] = "Error saving Article"
+      flash[:error] = "Error saving Article"
       render :new 
     end
   end
 
   def edit
     @wiki = Wiki.find(params[:wiki_id])
-    @post = Post.find(params[:id])
+    @article = Article.find(params[:id])
   end
 
   def update
+    @wiki = Wiki.find(params[:wiki_id])
+    @article = Article.find(params[:id])
+
+    if @article.update_attributes(params[:article])
+      flash[:notice] = "Article update"
+      redirect_to [@wiki,@article]
+    else
+      flash[:error] = "Error updating Article"
+      redirect_to [@wiki,@article] 
+    end
 
   end
 
