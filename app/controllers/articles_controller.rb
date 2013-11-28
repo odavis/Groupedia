@@ -37,15 +37,25 @@ class ArticlesController < ApplicationController
     @article = Article.find(params[:id])
 
     if @article.update_attributes(params[:article])
-      flash[:notice] = "Article update"
+      flash[:notice] = "Article updated"
       redirect_to [@wiki,@article]
     else
       flash[:error] = "Error updating Article"
       redirect_to [@wiki,@article] 
     end
-
   end
 
   def destroy
+    @wiki = Wiki.find(params[:wiki_id])
+    @article = Article.find(params[:id])
+
+    if @article.destroy
+      flash[:notice] = "Topic deleted"
+      redirect_to @wiki 
+    else
+      flash[:error] = "Error deleting post"
+      redirect_to [@wiki, article]
+    end
   end
+
 end

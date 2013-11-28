@@ -23,30 +23,30 @@
     </ul>
     <h3 class="text-muted"><%= link_to "Blocipedia", root_path%></h3>
   </div>
-
-  <div class="alerts">
-    <% if flash[:notice]%>
-      <p class="notice"><%= notice %></p>
+ 
+    <% if flash[:notice] %>
+      <div class="alert alert-success alert-dismissable">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        <%= flash[:notice] %>
+      </div>
+    <% elsif flash[:alert] %>
+     <div class="alert alert-error alert-dismissable">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= flash[:alert] %>
+    </div>
     <% elsif flash[:error]%>
-      <p class="alert"><%= alert %></p>
+     <div class="alert alert-warning alert-dismissable">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= flash[:error] %>
+    </div>
     <% end %>
-  </div>
 
-  <div>
-    <%= yield %>
-  </div>
-  </div>
-
-
-
-
-
-
-    
+    <div class="row">
+      <%= yield %>
+    </div>
+  </div>    
 </body>
 </html>
-
-
 
 
 

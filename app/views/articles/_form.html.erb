@@ -1,16 +1,23 @@
-<%= form_for [wiki, article] do |f| %>
-  <div>
-   <%= f.label :tittle %>
-   <%= f.text_field :title %>
+<%= form_for [wiki, article], html: {class: 'form-horizontal'}  do |f|  %>
+  <div class="form-group">
+   <%= f.label :title, class: "col-sm-2 control-label" %>
+   <div class="col-sm-10">
+    <%= f.text_field :title, class: "form-control" %>
+    </div>
   </div>
  
-  <div>
-    <%= f.label :body %>
-    <%= f.text_area :body %>
+  <div class="form-group">
+    <%= f.label :body, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.text_area :body, class: "form-control" %>
+    </div>
   </div>
 
-  <div>
-    <%= f.submit "Submit "%>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <%= f.submit "Save", class: "btn btn-primary"  %>
+    </div>
   </div>
-
 <% end %>
+
+

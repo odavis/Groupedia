@@ -1,4 +1,4 @@
 <h1><%= @article.title %></h1>
-<p><%= @article.body %></p>
+<p><%=  markdown @article.body %></p>
 <%= link_to "Edit", edit_wiki_article_path, class: "btn btn-success" %>
-<%= link_to "Delete", "#", class: "btn btn-warning" %>
+<%= link_to "Delete", [@wiki, @article], method: :delete, class: "btn btn-warning" %>
