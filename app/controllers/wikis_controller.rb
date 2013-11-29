@@ -17,7 +17,7 @@ class WikisController < ApplicationController
   def create
     @wiki = Wiki.new(params[:wiki])
 
-    authorize! :create, @wiki, message: "You must be a member to create a new Wiki"
+    #authorize! :create, @wiki, message: "You must be a member to create a new Wiki"
     if @wiki.save 
       flash[:notice] = "Wiki created"
       redirect_to @wiki 
