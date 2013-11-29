@@ -1,5 +1,9 @@
-<h1><%= @wiki.topic %></h1>
-<p><%= @wiki.description %></p>
+<h1>
+  <%= @wiki.topic %>  <%= link_to "Edit", edit_wiki_path, class:" btn btn-warning btn-xs" %>
+</h1>
+<h3>
+  <%= @wiki.description %>
+</h3>
 
 <% @article.each do |article| %>
   <p><%= link_to article.title, wiki_article_path(@wiki, article)%></p>

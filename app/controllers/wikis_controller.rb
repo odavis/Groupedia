@@ -37,7 +37,7 @@ class WikisController < ApplicationController
     
     authorize! :update, @wiki, message: "You must own this Wiki to update it"
 
-    if @wiki.update_attributes(:wiki)
+    if @wiki.update_attributes(params[:wiki])
       flash[:notice] = "Wiki updated"
       redirect_to @wiki
     else
