@@ -11,6 +11,10 @@ class User < ActiveRecord::Base
   has_many :authorizations
   has_many :wikis, dependent: :destroy 
 
+  before_create :set_member 
+
+ 
+
   def self.new_with_session(params,session)
     if session["devise.user_attributes"]
       new(session["devise.user_attributes"],without_protection: true) do |user|
@@ -39,5 +43,26 @@ class User < ActiveRecord::Base
    end
    authorization.user
  end
+
+
+ #CanCan
+   #CanCan
+  #ROLES = %w[member collaborators admin]
+  #def role?(base_role)
+    #role.nil? ? false : ROLES.index(base_role.to_s) <= ROLES.index(role)
+  #end
+  
+
+ #CanCan ROLES
+  ROLES = %w[member moderator admin]
+  def role?(base_role)
+    role.nil? ? false : ROLES.index(base_role.to_s) <= ROLES.index(role)
+  end
+  
+  private 
+  
+  def set_member
+    self.role = 'member'
+  end
 
 end

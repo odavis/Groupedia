@@ -4,5 +4,4 @@ class Wiki < ActiveRecord::Base
   validates :description, presence: true 
   validates :topic, presence: true  
   has_many :articles, dependent: :destroy 
-
 end

@@ -11,6 +11,7 @@ class ArticlesController < ApplicationController
   def new
     @wiki = Wiki.find(params[:wiki_id])
     @article = Article.new 
+    authorize! :create, Article, message: "You need to be a member to create a new article"
   end
 
   def create
@@ -30,11 +31,14 @@ class ArticlesController < ApplicationController
   def edit
     @wiki = Wiki.find(params[:wiki_id])
     @article = Article.find(params[:id])
+    authorize! :edit, @article, message: "You need to own the post to edit it"
   end
 
   def update
     @wiki = Wiki.find(params[:wiki_id])
     @article = Article.find(params[:id])
+
+    authorize! :update, @article, message: "You need to own the post to edit it"
 
     if @article.update_attributes(params[:article])
       flash[:notice] = "Article updated"
@@ -48,13 +52,15 @@ class ArticlesController < ApplicationController
   def destroy
     @wiki = Wiki.find(params[:wiki_id])
     @article = Article.find(params[:id])
+    title = @article.title  
 
+    authorize! :destroy, [@wiki, @article], message: "You must own this Article to delete"
     if @article.destroy
-      flash[:notice] = "Topic deleted"
+      flash[:notice] = "#{title} was deleted"
       redirect_to @wiki 
     else
-      flash[:error] = "Error deleting post"
-      redirect_to [@wiki, article]
+      flash[:error] = "Error deleting #{title}"
+      redirect_to [@wiki, @article]
     end
   end
 

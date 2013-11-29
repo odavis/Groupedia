@@ -1,28 +1,15 @@
-<h3>Your Wiki list </h3>
+<h3> Wiki list </h3>
 
 <% @wikis.each do |wiki| %>
   <h3><%= link_to wiki.topic, wiki %></h3>
-  <p><%= wiki.description %><p>
+  <p><%= wiki.description %>
+  <% if can? :destroy, Wiki %>  
+    <%= link_to "Delete", wiki, method: :delete, class: "btn btn-warning btn-xs", confirm: "Are you sure?" %>
+  <p>
+    <% end %>
 <% end %>
 
 
 <br/>
+
 <%= link_to "Create Wiki", new_wiki_path, class: "btn btn-success" %>
-
-<!--
-<div class="table-responsive">
-  <table class="table table-bordered table-striped">
-    <thead>
-      <th>#</th>
-      <th>Topic</th>
-      <th>Edit</th>
-      <th>Delete</th>
-      <th>Export</th>
-    </thead>
-
-    <tr>
-      
-    </tr>
-  <table>
-</div>
--->
