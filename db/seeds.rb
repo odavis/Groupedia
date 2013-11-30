@@ -1,12 +1,35 @@
 require 'faker'
 require 'pry'
 
+u1 = User.new(
+        email: "orrett.davis@gmail.com", 
+        password: "reddog",  
+        password_confirmation: "reddog",
+        name: "Orrett Davis ")
+        u1.update_attribute(:created_at, Time.now - rand(600..325360000))
+        u1.save
+        u1.update_attribute(:role, "admin")
+
+u2 = User.new(
+        email: "admin@example.com", 
+        password: "reddog",  
+        password_confirmation: "reddog",
+        name: "Admin User ")
+        u2.update_attribute(:created_at, Time.now - rand(600..325360000))
+        u2.save
+        u2.update_attribute(:role, "member")
+
+
 wikis = []
-15.times do 
-  wikis << Wiki.create(
+10.times do 
+  w = u1.wikis.create(
     topic: Faker::Lorem.words(rand(1..5)).join(" "),
     description: Faker::Lorem.paragraph(1))
+    w.update_attribute(:privacy, [true,false].sample)
+  wikis << w 
 end
+
+#binding.pry
 
 rand(50..100).times do 
   wiki = wikis.first
@@ -17,6 +40,7 @@ rand(50..100).times do
     a.update_attribute(:created_at, Time.now - rand(600..315360000))
     wikis.rotate!
 end
+
 
 
 puts "#{Wiki.count} Wikis created"

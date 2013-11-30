@@ -2,6 +2,7 @@ class WikisController < ApplicationController
 
   def index
     @wikis = Wiki.all
+    # @wikis = Wiki.visible_to
   end
 
   def show
@@ -11,13 +12,14 @@ class WikisController < ApplicationController
 
   def new
     @wiki = Wiki.new 
-    authorize! :create, @wiki, message: "You must be a member to create a new Wiki"
+    authorize! :create, @wiki, message: "You must login to create a new Wiki"
   end
 
   def create
-    @wiki = Wiki.new(params[:wiki])
+    #@wiki = Wiki.new(params[:wiki])
+    @wiki = current_user.wikis.build(params[:wiki])
 
-    #authorize! :create, @wiki, message: "You must be a member to create a new Wiki"
+    authorize! :create, @wiki, message: "You must login to create a new Wiki"
     if @wiki.save 
       flash[:notice] = "Wiki created"
       redirect_to @wiki 

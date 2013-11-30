@@ -1,6 +1,6 @@
 class Wiki < ActiveRecord::Base
   belongs_to :user
-  attr_accessible :description, :topic, :private
+  attr_accessible :description, :topic, :privacy
   validates :description, presence: true 
   validates :topic, presence: true  
   validates :topic, length: { maximum: 40 }
@@ -10,6 +10,8 @@ class Wiki < ActiveRecord::Base
   extend FriendlyId
   friendly_id :topic, use: :history 
 
+  #scope :visible_to, where(privacy: true) 
+  #scope :visible_to, lambda { |use| user ? scoped : where(privacy: false) }
 
 #  before_filter :find_wiki
 #  

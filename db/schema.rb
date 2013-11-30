@@ -64,7 +64,7 @@ ActiveRecord::Schema.define(:version => 20131129191409) do
     t.integer  "user_id"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
-    t.boolean  "private"
+    t.boolean  "privacy"
     t.string   "slug"
   end
 

@@ -16,7 +16,7 @@ class ArticlesController < ApplicationController
 
   def create
     @wiki = Wiki.find(params[:wiki_id])
-    @article = @wiki.articles.build(params[:article]) 
+    @article = current_user.wiki.articles.build(params[:article]) 
     @article.wiki = @wiki 
 
     if @article.save

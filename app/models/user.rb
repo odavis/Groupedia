@@ -9,8 +9,8 @@ class User < ActiveRecord::Base
   # attr_accessible :title, :body
   validates :email, presence: true 
   has_many :authorizations
+  
   has_many :wikis, dependent: :destroy 
-
   before_create :set_member 
 
  
