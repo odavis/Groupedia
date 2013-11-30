@@ -12,6 +12,8 @@ class Ability
         can :manage, Wiki, :user_id => user.id 
         can :create, Wiki 
         can :create, Article
+        can :edit, Article 
+        can :update, Article 
        # can :manage, Article, :user.id => user.id
 
         #can :manage, Wiki, user.id => 

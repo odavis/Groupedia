@@ -1,4 +1,5 @@
 class ArticlesController < ApplicationController
+  uses_markdown_preview
   def index
     @articles = Article.all 
   end
@@ -6,6 +7,7 @@ class ArticlesController < ApplicationController
   def show
     @wiki = Wiki.find(params[:wiki_id])
     @article = Article.find(params[:id])
+
   end
 
   def new
@@ -39,6 +41,7 @@ class ArticlesController < ApplicationController
   def edit
     @wiki = Wiki.find(params[:wiki_id])
     @article = Article.find(params[:id])
+    #uses_markdown_preview
     authorize! :edit, @article, message: "You need to own the post to edit it"
   end
 

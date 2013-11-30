@@ -3,5 +3,17 @@
   <%= render partial: "form", locals: { wiki: @wiki, article: @article } %>
 </div>
 <div class="col-md-6">
-  Live preview goes here!
+
+  
+    <%= form_for [@wiki, @article]  do |f|  %>
+    
+    <!--
+    <textarea class="markdown_preview">
+      <%= f.text_area :body %>
+    </textarea>
+  -->
+
+    <%end%>  
+
+  
 </div>
