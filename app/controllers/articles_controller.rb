@@ -16,8 +16,16 @@ class ArticlesController < ApplicationController
 
   def create
     @wiki = Wiki.find(params[:wiki_id])
-    @article = current_user.wiki.articles.build(params[:article]) 
+    #@article = current_user.wiki.articles.build(params[:article])
+    @article = @wiki.articles.build(params[:article]) 
+    #@article = current_user.wiki.articles.build(params[:article])
+    #@article = current_user.articles.build(params[:article]) 
+  #@article = current_user.articles.build(params[:article])
+
     @article.wiki = @wiki 
+
+    #@post = current_user.posts.build(params[:post])
+    #@post.topic = @topic
 
     if @article.save
       flash[:notice] = "Article was saved"

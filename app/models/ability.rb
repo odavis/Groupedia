@@ -11,6 +11,7 @@ class Ability
     if user.role? :member 
         can :manage, Wiki, :user_id => user.id 
         can :create, Wiki 
+        can :create, Article
        # can :manage, Article, :user.id => user.id
 
         #can :manage, Wiki, user.id => 

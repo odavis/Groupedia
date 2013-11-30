@@ -1,6 +1,7 @@
 class Article < ActiveRecord::Base
-  attr_accessible :body, :references, :title, :wiki
+  attr_accessible :body, :title, :wiki
   belongs_to :wiki 
+  #belongs_to :user
 
   validates :body, presence: true
   validates :title, presence: true 

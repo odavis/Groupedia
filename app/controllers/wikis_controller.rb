@@ -7,7 +7,7 @@ class WikisController < ApplicationController
 
   def show
     @wiki = Wiki.find(params[:id])
-    @article = @wiki.articles
+    @articles = @wiki.articles
   end
 
   def new

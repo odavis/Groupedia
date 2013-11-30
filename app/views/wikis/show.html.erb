@@ -9,13 +9,14 @@
 </h4>
 <hr>
 
-<h3>Articles</h3>
-<% @article.each do |article| %>
+<h3><%= pluralize(@articles.count, "Articles" )%></h3>
+
+
+<% @articles.each do |article| %>
   <p><%= link_to article.title, wiki_article_path(@wiki, article)%></p>
 <% end %>
 
 
 <% if can? :create, Article %>
   <%= link_to "New Article", new_wiki_article_path(@wiki), class: "btn btn-success btn-lg" %>
-  <% end %>
-
+<% end %>

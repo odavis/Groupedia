@@ -5,6 +5,8 @@ Blocipedia::Application.routes.draw do
     end
   end
 
+  resources :collaborators
+
   devise_for :users, controllers: { omniauth_callbacks: "omniauth_callbacks"}
   resources :users
   

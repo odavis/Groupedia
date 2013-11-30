@@ -1,11 +1,14 @@
 class Wiki < ActiveRecord::Base
   belongs_to :user
+  has_many :collaborators, dependent: :destroy
+  has_many :articles, dependent: :destroy 
+
   attr_accessible :description, :topic, :privacy
   validates :description, presence: true 
   validates :topic, presence: true  
   validates :topic, length: { maximum: 40 }
   validates :description, length: { maximum: 140 }
-  has_many :articles, dependent: :destroy 
+  
 
   extend FriendlyId
   friendly_id :topic, use: :history 
