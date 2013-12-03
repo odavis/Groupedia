@@ -1,5 +1,9 @@
 class CollaborationsController < ApplicationController
   
+  def index
+    @collaborations = Collaboration.all
+  end
+
   def new
     @collaboration = Collaboration.new 
     @collaborations = Collaboration.all
@@ -12,8 +16,9 @@ class CollaborationsController < ApplicationController
     # user = User.where(email: @collab.email)
     # user_id = user.id
     # @collaboration.update_attribute(:user_id, user_id)
-
+    @wiki = Wiki.find(params[:id])
     @collaboration = Collaboration.create(params[:collaboration])
+    @collaborations = Collaboration.all
     @email = @collaboration.email
 
     if User.find_by_email(@email)

@@ -1,0 +1,26 @@
+<%= form_for [wiki, collaboration] do |f| %>
+  <div>
+    <%= f.label :email %>
+    <%= f.text_field :email %>
+  </div>
+
+  <div>
+    <%= f.label :role %>
+    <%= f.select :role, options_for_select([["Owner", "Owner"], ["Editor", "Editor"]]) %>
+  </div>
+Hello
+  <div>
+    <%= f.submit "Submit" %>
+  </div>
+ 
+<% end %>
+
+<br/>
+
+<h2>Collaborators</h2>
+
+ 
+
+
+  
+

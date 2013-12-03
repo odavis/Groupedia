@@ -8,12 +8,11 @@ Blocipedia::Application.routes.draw do
   resources :wikis do 
     resources :articles do 
     end
+
+    resources :collaborations
   end
 
-  resources :collaborations do 
-    #resources :wikis 
-    #resources :user 
-  end
+  resources :collaborations 
 
   devise_for :users, controllers: { omniauth_callbacks: "omniauth_callbacks"}
   resources :users
