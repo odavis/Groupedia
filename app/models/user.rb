@@ -10,11 +10,9 @@ class User < ActiveRecord::Base
   validates :email, presence: true 
   has_many :authorizations
   
-  has_many :wikis, dependent: :destroy 
-  #has_many :articles, dependent: :destroy
-  before_create :set_member 
+  has_many :wikis, through: :collaborations 
 
- 
+  before_create :set_member 
 
   def self.new_with_session(params,session)
     if session["devise.user_attributes"]

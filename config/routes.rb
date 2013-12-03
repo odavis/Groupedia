@@ -1,11 +1,19 @@
 Blocipedia::Application.routes.draw do
   
+ # get "collaborations/create"
+
+  # get "collaborations/new"
+
+  
   resources :wikis do 
     resources :articles do 
     end
   end
 
-  resources :collaborators
+  resources :collaborations do 
+    #resources :wikis 
+    #resources :user 
+  end
 
   devise_for :users, controllers: { omniauth_callbacks: "omniauth_callbacks"}
   resources :users
