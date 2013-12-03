@@ -7,12 +7,21 @@ class CollaborationsController < ApplicationController
 
   def create
     # @wiki = Wiki.find(params[:wiki_id])
+    # @collaboration = Collaboration.create(params[:collaboration])
+    # email = @collaboration.email 
+    # user = User.where(email: @collab.email)
+    # user_id = user.id
+    # @collaboration.update_attribute(:user_id, user_id)
+
     @collaboration = Collaboration.create(params[:collaboration])
     @email = @collaboration.email
-    user_id = User.find_by_email(@email).id
-    @collaboration.update_attribute(:user_id, user_id)
 
-    #Use case when email address is not found? 
+    if User.find_by_email(@email)
+      user_id = User.find_by_email(@email).id
+      @collaboration.update_attribute(:user_id, user_id)
+    end
+
+    # Use case when email address is not found? 
     # should email that person inviting them to join blocipeida 
 
     if @collaboration.save
@@ -22,12 +31,6 @@ class CollaborationsController < ApplicationController
       flash[:error] = "Error adding #{@email} as collaborator "
       redirect_to new_collaboration_path
     end
-
-  # @collaboration = Collaboration.create(params[:collaboration])
-  # email = @collaboration.email 
-  # user = User.where(email: @collab.email)
-  # user_id = user.id
-  # @collaboration.update_attribute(:user_id, user_id)
   end
 
   def destroy

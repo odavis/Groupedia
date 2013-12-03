@@ -15,9 +15,10 @@ class Ability
         can :edit, Article 
         can :update, Article 
        # can :manage, Article, :user.id => user.id
-
         #can :manage, Wiki, user.id => 
     end
+
+  
 
     #if user.role? :collaberator
 

@@ -13,6 +13,11 @@ group :development do
   gem 'sqlite3'
   gem 'better_errors'
   gem 'sextant'
+  # Guard and Livereload gems
+  gem 'guard'
+  gem 'guard-livereload'
+  gem 'guard-zeus'
+  gem 'rb-inotify', :require => false
 end
 
 # Gems used only for assets and not required
@@ -39,3 +44,4 @@ gem 'redcarpet'
 gem 'pry'
 gem 'friendly_id', '~> 4.0.10'
 gem 'markdown_preview'
+
