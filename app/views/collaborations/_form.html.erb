@@ -1,25 +1,37 @@
-<%= form_for [wiki, collaboration] do |f| %>
-  <div>
-    <%= f.label :email %>
-    <%= f.text_field :email %>
+<h2>Add Collaborator</h2>
+<%= form_for @collaboration, html: { class: "form-horizontal"} do |f| %>
+  
+  <div class="form-group">
+    <%= f.label :email, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.text_field :email, class: "form-control" %>
+    </div>
   </div>
 
-  <div>
-    <%= f.label :role %>
-    <%= f.select :role, options_for_select([["Owner", "Owner"], ["Editor", "Editor"]]) %>
+  <div class="form-group">
+    <%= f.label :role, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.select :role, options_for_select([["Owner", "Owner"], ["Editor", "Editor"]]), class: "form-control" %>
+    </div>
   </div>
-Hello
-  <div>
-    <%= f.submit "Submit" %>
+
+  <div class="form-group">
+    <%= f.submit "Submit", class: "btn btn-primary" %>
   </div>
- 
 <% end %>
 
-<br/>
+<% @collaborations.each do |colab| %>
+  <p>
+    <%= colab.email %>
+    <%= colab.role %> 
+    <%= colab.user_id %>
+    <%= colab.wiki_id %>
+    <%= link_to "remove", colab, method: :delete, class: "btn btn-primary btn-xs" %>
+  </p>  
+<% end %>
 
-<h2>Collaborators</h2>
 
- 
+
 
 
   

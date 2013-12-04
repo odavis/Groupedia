@@ -9,7 +9,7 @@ Blocipedia::Application.routes.draw do
     resources :articles do 
     end
 
-    resources :collaborations
+    #resources :collaborations
   end
 
   resources :collaborations 

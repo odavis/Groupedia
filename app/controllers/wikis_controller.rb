@@ -2,13 +2,14 @@ class WikisController < ApplicationController
 
   def index
     @wikis = Wiki.all
-    # @wikis = Wiki.visible_to
   end
 
   def show
     @wiki = Wiki.find(params[:id])
-    # @collaboration = Collaboration.all
     @articles = @wiki.articles
+
+    @collaboration = Collaboration.new
+    @collaborations = Collaboration.all
   end
 
   def new
@@ -17,7 +18,6 @@ class WikisController < ApplicationController
   end
 
   def create
-    #@wiki = Wiki.new(params[:wiki])
     @wiki = current_user.wikis.build(params[:wiki])
 
     authorize! :create, @wiki, message: "You must login to create a new Wiki"

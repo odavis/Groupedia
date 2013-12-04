@@ -1,5 +1,5 @@
 class Wiki < ActiveRecord::Base
-  has_many :users, through: :collaborations, dependent: :destroy
+  has_many :users, through: :collaborations #, dependent: :destroy
   has_many :articles, dependent: :destroy 
 
   attr_accessible :description, :topic, :privacy
