@@ -6,20 +6,20 @@ class CollaborationsController < ApplicationController
   end
 
   def create
+    binding.pry
     # @wiki = Wiki.find(params[:wiki_id])
     # @collaboration = Collaboration.create(params[:collaboration])
     # email = @collaboration.email 
     # user = User.where(email: @collab.email)
     # user_id = user.id
     # @collaboration.update_attribute(:user_id, user_id)
-    #@wiki = Wiki.find(params[:wiki_id])
 
-    @wiki = Wiki.find(params[:wiki])
+    @wiki = Wiki.find(params[:collaboration][:wiki_id])
     @collaboration = Collaboration.create(params[:collaboration])
+    
+    @collaboration.wiki
     @collaborations = Collaboration.all
     @email = @collaboration.email
-
-    @collaboration.update_attribute(:wiki_id, 33)
 
     # Use case when email address is not found? 
     # should email that person inviting them to join blocipeida 
