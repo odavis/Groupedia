@@ -9,8 +9,8 @@ class User < ActiveRecord::Base
 
   validates :email, presence: true 
   has_many :authorizations
-  
-  has_many :wikis, through: :collaborations 
+  has_many :wikis, through: :collaborations
+  has_many :collaborations 
 
   before_create :set_member 
 

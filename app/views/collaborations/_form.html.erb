@@ -15,10 +15,13 @@
     </div>
   </div>
 
+  <%= f.hidden_field :wiki_id, value: @wiki.id %>
+  
   <div class="form-group">
     <%= f.submit "Submit", class: "btn btn-primary" %>
   </div>
 <% end %>
+
 
 <% @collaborations.each do |colab| %>
   <p>
