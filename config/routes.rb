@@ -4,7 +4,7 @@ Blocipedia::Application.routes.draw do
 
   # get "collaborations/new"
 
-  
+  resources :charges
   resources :wikis do 
     resources :articles do 
     end

@@ -13,8 +13,7 @@ class Wiki < ActiveRecord::Base
   extend FriendlyId
   friendly_id :topic, use: :history 
 
-  #scope :visible_to, where(privacy: true) 
-  #scope :visible_to, lambda { |use| user ? scoped : where(privacy: false) }
+  scope :visible_to, where(privacy: false) 
 
 #  before_filter :find_wiki
 #  

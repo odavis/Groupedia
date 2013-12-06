@@ -23,15 +23,29 @@
 <% end %>
 
 
-<% @collaborations.each do |colab| %>
-  <p>
-    <%= colab.email %>
-    <%= colab.role %> 
-    <%= colab.user_id %>
-    <%= colab.wiki_id %>
-    <%= link_to "remove", colab, method: :delete, class: "btn btn-primary btn-xs" %>
-  </p>  
-<% end %>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Email</th>
+      <th>Role</th>
+      <th>User ID</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @collaborations.each do |colab| %>
+    <tr>
+      <td><%= colab.email %></td>
+      <td><%= colab.role %> </td>
+      <td><%= colab.user_id %></td>
+      <td><%= link_to "remove", colab, method: :delete, class: "btn btn-primary btn-xs" %></td>
+    </tr>
+    <% end %>
+  </tbody>
+  </table>
+
+
+
+
 
 
 

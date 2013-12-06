@@ -1,10 +1,12 @@
 class WikisController < ApplicationController
 
   def index
-    @wikis = Wiki.all
+    @wikis = Wiki.visible_to
+    # visible to logined user and collaborators only 
   end
 
   def show
+    
     @wiki = Wiki.find(params[:id])
     @articles = @wiki.articles
     

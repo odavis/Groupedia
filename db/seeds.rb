@@ -3,8 +3,8 @@ require 'pry'
 
 u1 = User.new(
         email: "orrett.davis@gmail.com", 
-        password: "reddog",  
-        password_confirmation: "reddog",
+        password: "hello",  
+        password_confirmation: "hello",
         name: "Orrett Davis ")
         u1.update_attribute(:created_at, Time.now - rand(600..325360000))
         u1.save
@@ -12,8 +12,8 @@ u1 = User.new(
 
 u2 = User.new(
         email: "admin@example.com", 
-        password: "reddog",  
-        password_confirmation: "reddog",
+        password: "hello",  
+        password_confirmation: "hello",
         name: "Admin User ")
         u2.update_attribute(:created_at, Time.now - rand(600..325360000))
         u2.save
