@@ -34,6 +34,7 @@ gem 'friendly_id', '~> 4.0.10'
 
 #Authentication
 gem 'devise', '3.2.0'
+gem 'devise_invitable'
 gem 'omniauth'
 gem 'omniauth-twitter'
 gem 'omniauth-facebook'

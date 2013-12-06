@@ -14,7 +14,7 @@ Blocipedia::Application.configure do
   config.action_controller.perform_caching = false
 
   # Don't care if the mailer can't send
-  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.raise_delivery_errors = true
 
   # Print deprecation notices to the Rails logger
   config.active_support.deprecation = :log
@@ -37,8 +37,8 @@ Blocipedia::Application.configure do
 
   # Default mailer action
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
-
-  #OpenSSL::SSL::VERIFY_PEER = OpenSSL::SSL::VERIFY_NONE
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.perform_deliveries = true
 
 
 end
