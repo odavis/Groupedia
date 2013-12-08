@@ -21,13 +21,14 @@ group :development do
   gem 'rb-inotify', :require => false
 end
 
-# Front end CSS/SASS
+# Front-end CSS/SASS and fontawesome
 gem 'sass-rails',   '~> 3.2.3'
 gem 'coffee-rails', '~> 3.2.1'
 gem 'uglifier', '>= 1.0.3'
 gem 'sass', '3.2.10'
 gem 'jquery-rails'
 gem 'anjlab-bootstrap-rails', :require => 'bootstrap-rails', :github => 'anjlab/bootstrap-rails'
+gem 'font-awesome-rails'
 
 # Friendly Urls
 gem 'friendly_id', '~> 4.0.10'
@@ -46,12 +47,15 @@ gem 'stripe'
 
 #Markdown
 gem 'redcarpet'
-gem 'markdown_preview'
 
 #Debugging
 gem 'pry'
 gem 'faker'
+gem 'awesome_print'
+
+# App configuration
 gem 'figaro'
+
 
 
 

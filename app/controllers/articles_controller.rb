@@ -1,13 +1,13 @@
 class ArticlesController < ApplicationController
-  uses_markdown_preview
+  
   def index
     @articles = Article.all 
   end
 
+
   def show
     @wiki = Wiki.find(params[:wiki_id])
     @article = Article.find(params[:id])
-
   end
 
   def new

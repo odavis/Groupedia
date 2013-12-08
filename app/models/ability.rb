@@ -14,19 +14,33 @@ class Ability
         can :create, Article
         can :edit, Article 
         can :update, Article 
+        can :create, Collaboration, :user_id => user.id 
        # can :manage, Article, :user.id => user.id
         #can :manage, Wiki, user.id => 
     end
 
-  
+    # if user.collaboration.role? :owner
+    # can create new wiki
+    # can edit wiki
+    # can update wiki
+    # can destroy wiki 
+    # manage wiki  
+    # end
 
-    #if user.role? :collaberator
+    # if user.collaboration.role? :editor
+      # can edit
+      # can update
+    # end
 
-    #end
+    # if user membership? :free
+    # end
+
+    # if user.membership? :paid
+    # can create private accoutn 
+    # end
 
     can :read, Wiki, privacy: false
   end
-  
 end
 
 

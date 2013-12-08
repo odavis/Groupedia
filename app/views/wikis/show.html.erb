@@ -21,5 +21,6 @@
   <%= link_to "New Article", new_wiki_article_path(@wiki), class: "btn btn-success btn-lg" %>
 <% end %>
 
-<!-- if can? :create, Collaboration -->
-<%= render partial: "collaborations/form", locals: {wiki: @wiki, collaboration: @collaboration } %>
+<% if can? :create, Collaboration%>
+  <%= render partial: "collaborations/form", locals: {wiki: @wiki, collaboration: @collaboration } %>
+<% end %>
