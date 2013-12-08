@@ -1,4 +1,4 @@
-<h3> My Wikis </h3>
+<h3>Wiki Index </h3>
 
 <% @wikis.each do |wiki| %>
 <table class="table">
@@ -6,12 +6,11 @@
     <tr>
       <td>
         <div style="width : 300px">
-        <%= link_to wiki.topic, wiki %>
+        <h4><%= link_to wiki.topic, wiki %></h4>
         <p><%= wiki.description %></p>
         </div>
       </td>
       <td>
-
         <% if can? :edit, Wiki %>
           <%= link_to "Edit", edit_wiki_path(wiki), class: "btn btn-warning" %>
         <% end %>
@@ -19,13 +18,38 @@
       <td>
         <% if can? :destroy, Wiki %>  
           <%= link_to "Delete", wiki, method: :delete, class: "btn btn-warning", confirm: "Are you sure?" %>
-        <% end %></td>
+        <% end %>
+      </td>
     </tr>
   </tbody>
 </table>
+
 <% end %>
 
-<br/>
+
+
 <% if can? :create, Wiki %>
-  <%= link_to "Create Wiki", new_wiki_path, class: "btn btn-success" %>
+  <%= link_to new_wiki_path do %>
+  <button class="btn btn-success">
+    <i class="fa fa-plus fa-1x"></i>
+    New Wiki
+  </button>
+  <% end %>
 <% end %>
+
+<hr/>
+
+<p>
+  <h4>Create private wikis with a premium account upgrade today!
+  <%= link_to new_charge_path do %>
+  <button class="btn btn-primary">
+    <i class="fa fa-star fa-lg"></i>
+      Upgrade
+  </button>
+  </h4>
+  <% end %>
+</p>
+
+
+
+

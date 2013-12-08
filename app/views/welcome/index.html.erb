@@ -1,11 +1,20 @@
 <div class="jumbotron">
-  <h1>Blocipedia</h1>
-  <p class="lead">Private group wikis</p>
-  <%= link_to new_user_registration_path do %>
-    <button class="btn btn-success">
-    <i class="fa fa-male fa-lg"> </i>
-    Sign up
+ <h1>Blocipedia</h1>
+ <p class="lead">Private group wikis</p>
+ <% if current_user  %>
+  <%= link_to new_charge_path do %>
+    <button class="btn btn-primary">
+      <i class="fa fa-star fa-lg"></i>
+        Upgrade
     </button>
+    <% end %>
+  <% else %>
+    <%= link_to new_user_registration_path do %>
+      <button class="btn btn-success">
+        <i class="fa fa-bolt fa-lg"> </i>
+        Sign up
+      </button>
+    <% end %>
   <% end %>
   </div>
 
