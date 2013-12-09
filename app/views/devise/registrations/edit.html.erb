@@ -56,6 +56,21 @@
     </button>
   </div>
   <% end %>
+
+
+  <% if current_user %>
+<p>
+  <h4>Create private wikis when you upgrade to a premium account.
+  <%= link_to new_charge_path do %>
+  <button class="btn btn-primary">
+    <i class="fa fa-star fa-lg"></i>
+      Upgrade
+  </button>
+  </h4>
+  <% end %>
+</p>
+<% end %>
+
 <% end %>
 
 

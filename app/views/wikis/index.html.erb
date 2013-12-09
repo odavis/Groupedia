@@ -26,8 +26,6 @@
 
 <% end %>
 
-
-
 <% if can? :create, Wiki %>
   <%= link_to new_wiki_path do %>
   <button class="btn btn-success">
@@ -39,6 +37,7 @@
 
 <hr/>
 
+<% if current_user %>
 <p>
   <h4>Create private wikis with a premium account upgrade today!
   <%= link_to new_charge_path do %>
@@ -49,6 +48,7 @@
   </h4>
   <% end %>
 </p>
+<% end %>
 
 
 

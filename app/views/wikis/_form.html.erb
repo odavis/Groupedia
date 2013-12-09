@@ -14,17 +14,31 @@
     </div>
   </div>
 
- <!-- upgrade your account to create private wiki
-      if can? :create, Charges -->
+ <!-- upgrade your account to create private wikis -->
+
+  <% if current_user.subscription %>
   <div class="form-group">
     <%= f.label :privacy, "Private:", class: "col-sm-2 control-label" %>
     <div class="col-sm-10">
       <%= f.check_box :privacy, class: "form-control" %>
     </div>
   </div>
+  <% end %>
 
-  <div class="form-group">
+  <div class="form_submission">
     <%= f.submit "Save", class: "btn btn-primary" %>
   </div>
-  
+<% end %>
+
+<% unless current_user.subscription %>
+  <p class="upgrade-text">
+    <h4>Create private wikis with a premium account upgrade today!
+    <%= link_to new_charge_path do %>
+    <button class="btn btn-primary">
+      <i class="fa fa-star fa-lg"></i>
+        Upgrade
+    </button>
+    <% end %>
+    </h4>
+  </p>
 <% end %>

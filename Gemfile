@@ -13,6 +13,8 @@ group :development do
   gem 'sqlite3'
   gem 'better_errors'
   gem 'sextant'
+  gem 'binding_of_caller'
+  gem 'meta_request'
 
   # Guard and Livereload gems
   gem 'guard'

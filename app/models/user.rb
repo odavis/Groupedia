@@ -11,8 +11,10 @@ class User < ActiveRecord::Base
   has_many :authorizations
   has_many :wikis, through: :collaborations
   has_many :collaborations 
+  has_one :subscription 
+  before_create :set_member
 
-  before_create :set_member 
+  after_create :create_new_subscription 
 
   def self.new_with_session(params,session)
     if session["devise.user_attributes"]
@@ -60,6 +62,10 @@ class User < ActiveRecord::Base
   
   private 
   
+  def create_new_subscription
+    Subscription.create(user_id: id)
+  end
+
   def set_member
     self.role = 'member'
   end
