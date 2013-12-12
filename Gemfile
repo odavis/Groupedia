@@ -49,6 +49,7 @@ gem 'stripe'
 
 #Markdown
 gem 'redcarpet'
+gem 'epic-editor-rails'
 
 #Debugging
 gem 'pry'

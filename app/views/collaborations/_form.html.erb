@@ -31,7 +31,6 @@
     <tr>
       <th>Email</th>
       <th>Role</th>
-      <th>User ID</th>
     </tr>
   </thead>
   <tbody>
@@ -39,7 +38,6 @@
     <tr>
       <td><%= colab.email %></td>
       <td><%= colab.role %> </td>
-      <td><%= colab.user_id %></td>
       <td><%= link_to "remove", colab, method: :delete, class: "btn btn-primary btn-xs" %></td>
     </tr>
     <% end %>

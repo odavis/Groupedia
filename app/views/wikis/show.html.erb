@@ -10,14 +10,36 @@
 <hr>
 
 <h4>Listing <%= pluralize(@articles.count, "Articles" )%></h4>
-
-
-<% @articles.each do |article| %>
-  <p><h5><%= link_to article.title, wiki_article_path(@wiki, article)%></h5></p>
-<% end %>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Article</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @articles.each do |article| %>
+    <tr>
+      <td><h4><%= link_to article.title, wiki_article_path(@wiki, article)%></h4></td>
+      
+      <% if (@collaboration_Role == "Owner" || @collaboration_Role == "Editor") %>
+        <td>
+          <%= link_to "Edit", edit_wiki_article_path(@wiki, article), class: "btn btn-warning btn" %> 
+        </td>
+      <% end %>
+      <% if @collaboration_Role == "Owner" %>
+      <td><%= link_to "Delete", [@wiki, article], method: :delete, class: "btn btn-warning btn-", confirm: "Are you sure?" %></td>
+      <% end %>
+    </tr>
+    
+    <% end %>
+  </tbody>
+  </table>
 
 <br/>
-<% if can? :create, Article %>
+
+<% if can? :article, Article %>
   <%= link_to new_wiki_article_path(@wiki) do %>
   <button class="btn btn-success btn-">
     <i class="fa fa-plus fa-1x"></i>
@@ -27,9 +49,10 @@
 <% end %>
 
 <hr/>
-
-<% if can? :create, Collaboration%>
-  <% if @wiki.collaborations.count > 0 %>
-  <%= render partial: "collaborations/form", locals: {wiki: @wiki, collaboration: @collaboration } %>
+  <% if can? :collaboration, Collaboration %>
+    <% if @wiki.collaborations.count > 0 %>
+      <%= render partial: "collaborations/form", locals: {wiki: @wiki, collaboration: @collaboration } %>
+    <% end %>
   <% end %>
-<% end %>
+
+

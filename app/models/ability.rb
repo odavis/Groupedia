@@ -10,13 +10,15 @@ class Ability
 
     if user.role? :member 
         can :manage, Wiki, :user_id => user.id 
+        can :edit, Wiki, :user_id => user.id
         can :create, Wiki 
-        can :create, Article
+
+        can :create, Article, :user_id => user.id
         can :edit, Article 
         can :update, Article 
+
         can :create, Collaboration, :user_id => user.id 
     end
-
     can :read, Wiki, privacy: false
   end
 end

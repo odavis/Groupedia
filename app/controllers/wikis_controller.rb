@@ -6,12 +6,16 @@ class WikisController < ApplicationController
   end
 
   def show
-    
     @wiki = Wiki.find(params[:id])
     @articles = @wiki.articles
     
+    # Collaboration 
     @collaboration = Collaboration.new
     @collaborations = @wiki.collaborations
+
+    if current_user
+      @collaboration_Role ||= @collaborations.find_by_user_id(current_user.id).role
+    end
   end
 
   def new

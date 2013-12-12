@@ -9,7 +9,9 @@
   <div class="form-group">
     <%= f.label :body, class: "col-sm-2 control-label" %>
     <div class="col-sm-10">
-      <%= f.text_area :body, class: "form-control"%>
+
+      <div id="epiceditor"></div>
+      <%= f.text_area :body, class: "form-control", id: "foobar" %>
     </div>
   </div>
 
@@ -20,4 +22,10 @@
   </div>
 <% end %>
 
+<script>
+$(document).ready(function(){
+  var editor = new EpicEditor().load();
+  editor.getElement('editor').body.innerHTML = <%= @article.body.to_s %>"
+})
+</script>
 

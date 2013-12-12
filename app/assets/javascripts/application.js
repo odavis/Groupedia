@@ -13,3 +13,17 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+//= require 'epiceditor'
+
+
+$(document).ready(function(){
+  
+  
+  
+});
+
+
+
+// someBtn.onclick = function () {
+//   console.log(editor.getElement('editor').body.innerHTML); // Returns the editor's content
+// }
