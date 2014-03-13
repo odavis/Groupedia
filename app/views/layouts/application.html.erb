@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Blocipedia</title>
+  <title>Groupedia</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
   <body>
-    
-  <div class="container">  
+
+  <div class="container">
     <div class="header">
       <ul class="nav nav-pills pull-right">
         <li class="active"><%= link_to "Home", root_path %></li>
@@ -21,7 +21,7 @@
         <li><%= link_to "Sign in", new_user_session_path %></li>
         <% end %>
       </ul>
-      <h3 class="text-muted"><%= link_to "Blocipedia", root_path%></h3>
+      <h3 class="text-muted"><%= link_to "Groupedia", root_path%></h3>
     </div>
    <% if flash[:notice] %>
     <div class="alert alert-success alert-dismissable">
@@ -39,12 +39,12 @@
       <%= flash[:error] %>
     </div>
     <% end %>
-  </div> 
+  </div>
 
   <div class="container">
     <%= yield %>
   </div>
-       
+
   </body>
 </html>
 
