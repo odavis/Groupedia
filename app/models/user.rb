@@ -6,13 +6,13 @@ class User < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me, :name
-  validates :email, presence: true 
+  validates :email, presence: true
   has_many :authorizations
   has_many :wikis, through: :collaborations
-  has_many :collaborations 
-  has_one :subscription 
+  has_many :collaborations
+  has_one :subscription
   before_create :set_member
-  after_create :create_new_subscription 
+  after_create :create_new_subscription
 
   def self.new_with_session(params,session)
     if session["devise.user_attributes"]
@@ -50,16 +50,16 @@ class User < ActiveRecord::Base
   #def role?(base_role)
     #role.nil? ? false : ROLES.index(base_role.to_s) <= ROLES.index(role)
   #end
-  
+
 
  #CanCan ROLES
   ROLES = %w[member moderator admin]
   def role?(base_role)
     role.nil? ? false : ROLES.index(base_role.to_s) <= ROLES.index(role)
   end
-  
-  private 
-  
+
+  private
+
   def create_new_subscription
     Subscription.create(user_id: id)
   end

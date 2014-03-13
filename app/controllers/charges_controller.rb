@@ -10,15 +10,13 @@ class ChargesController < ApplicationController
       :plan => "blocipedia-subscription"
       )
 
-    # binding.pry
- 
-    if current_user.subscription.update_attribute(:customerid, customer.id) 
+    if current_user.subscription.update_attribute(:customerid, customer.id)
       current_user.subscription.update_attribute(:account, "premium")
     end
 
     @amount = (customer.subscription.plan.amount)/100.00
 
-  rescue Stripe::CardError => e 
+  rescue Stripe::CardError => e
     flash[:error] = e.message
     redirect_to charges_path
   end
