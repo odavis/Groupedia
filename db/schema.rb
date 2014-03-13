@@ -41,7 +41,6 @@ ActiveRecord::Schema.define(:version => 20131209142529) do
   create_table "collaborators", :force => true do |t|
     t.string   "email"
     t.integer  "user_id"
-    t.integer  "wiki_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
