@@ -1,7 +1,7 @@
 class ArticlesController < ApplicationController
-  
+
   def index
-    @articles = Article.all 
+    @articles = Article.all
   end
 
 
@@ -12,19 +12,19 @@ class ArticlesController < ApplicationController
 
   def new
     @wiki = Wiki.find(params[:wiki_id])
-    @article = Article.new 
+    @article = Article.new
     authorize! :create, Article, message: "You need to be a member to create a new article"
   end
 
   def create
     @wiki = Wiki.find(params[:wiki_id])
     #@article = current_user.wiki.articles.build(params[:article])
-    @article = @wiki.articles.build(params[:article]) 
+    @article = @wiki.articles.build(params[:article])
     #@article = current_user.wiki.articles.build(params[:article])
-    #@article = current_user.articles.build(params[:article]) 
+    #@article = current_user.articles.build(params[:article])
   #@article = current_user.articles.build(params[:article])
 
-    @article.wiki = @wiki 
+    @article.wiki = @wiki
 
     #@post = current_user.posts.build(params[:post])
     #@post.topic = @topic
@@ -34,7 +34,7 @@ class ArticlesController < ApplicationController
       redirect_to [@wiki, @article]
     else
       flash[:error] = "Error saving Article"
-      render :new 
+      render :new
     end
   end
 
@@ -56,19 +56,19 @@ class ArticlesController < ApplicationController
       redirect_to [@wiki,@article]
     else
       flash[:error] = "Error updating Article"
-      redirect_to [@wiki,@article] 
+      redirect_to [@wiki,@article]
     end
   end
 
   def destroy
     @wiki = Wiki.find(params[:wiki_id])
     @article = Article.find(params[:id])
-    title = @article.title  
+    title = @article.title
 
     authorize! :destroy, [@wiki, @article], message: "You must own this Article to delete"
     if @article.destroy
       flash[:notice] = "#{title} was deleted"
-      redirect_to @wiki 
+      redirect_to @wiki
     else
       flash[:error] = "Error deleting #{title}"
       redirect_to [@wiki, @article]

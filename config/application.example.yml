@@ -1,0 +1,18 @@
+# Add application configuration variables here, as shown below.
+
+development:
+  TWITTER_KEY:
+  TWITTER_SECRET:
+  FB_ID:
+  FB_Secret:
+  STRIPE_KEY:
+  STRIPE_SECRET:
+
+
+production:
+  TWITTER_KEY:
+  TWITTER_SECRET:
+  FB_ID:
+  FB_Secret:
+  STRIPE_KEY:
+  STRIPE_SECRET:
