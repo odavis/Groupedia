@@ -1,4 +1,4 @@
-Blocipedia::Application.routes.draw do
+Groupedia::Application.routes.draw do
 
   resources :charges, only: [:create, :new]
   resources :wikis do 

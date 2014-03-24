@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-Blocipedia::Application.load_tasks
+Groupedia::Application.load_tasks
