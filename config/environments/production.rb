@@ -62,7 +62,7 @@ Blocipedia::Application.configure do
   config.active_support.deprecation = :notify
 
     # Default mailer action
-  config.action_mailer.default_url_options = { :host => 'http://odavis-blocipedia.heroku.com' }
+  config.action_mailer.default_url_options = { :host => 'http://groupedia.heroku.com' }
 
   # Log the query plan for queries taking more than this (works
   # with SQLite, MySQL, and PostgreSQL)
